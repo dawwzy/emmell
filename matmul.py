@@ -8,6 +8,6 @@ def matmul(a, b):
     c = torch.zeros(ar, bc)
 
     for i in range(ar):
-        for j in range(bc):
-            c[i,j] = (a[i,:] * b[:,j]).sum()
+        # Convince yourself this works
+        c[i,:] = (a[i].unsqueeze(-1) * b).sum(dim=0)
     return c

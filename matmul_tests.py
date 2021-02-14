@@ -15,5 +15,7 @@ def test2():
     m2 = tensor([[5, 6],[7, 8]])
     return matmul(m1, m2)
 
-assert torch.all(torch.eq(test2(), tensor([[19, 22],[43, 50]]))), "Failed test 2"
-print("Passed test 2")
+print("Test 2 ... ", end="")
+assert torch.allclose(test2(), tensor([[19.0, 22.0],[43.0, 50.0]]), 
+       rtol=1e-3, atol=1e-5), "Failed"
+print("OK")
