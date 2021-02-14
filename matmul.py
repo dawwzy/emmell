@@ -9,6 +9,5 @@ def matmul(a, b):
 
     for i in range(ar):
         for j in range(bc):
-            for k in range(ac): # could use br here
-                c[i,j] += a[i,k] * b[k,j]
+            c[i,j] = (a[i,:] * b[:,j]).sum()
     return c
